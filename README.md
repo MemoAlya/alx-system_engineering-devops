@@ -1,1 +1,1 @@
- Shell, init files, variables and expansions
+0x1A. Application server
