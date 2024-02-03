@@ -1,8 +1,9 @@
-#0-the_sky_is_the_limit_not.pp set open file limit higher
-exec { 'set limit to 2000':
-  path    => '/bin',
-  command => "sed -i 's/15/2000/' /etc/default/nginx"
+# obligatory puppet comment. 
+exec { 'hard limit':
+  command => "sed -i 's/5/4000/' /etc/security/limits.conf",
+  path    => '/bin'
 }
-exec { 'reboot nginx':
-  command => '/usr/sbin/service nginx restart'
+exec { 'soft limit':
+  command => "sed -i 's/4/2000/' /etc/security/limits.conf",
+  path    => '/bin'
 }
